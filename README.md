@@ -12,9 +12,9 @@ Even though it is possible to make this fully multi platform utility, my primary
 ![image-20250615143423162](docs/images/system-tray-001.png)
 
 
-## Yet TODO:
+## Possible Additions::
 
-When using the button, I have not found use for push-to-talk functionality compared to the toggle. So for now I am leaving this functionality out.
+When using the button, I have not found use for push-to-talk functionality compared to the toggle. So for now I am leaving this functionality out for now.
 
 ## References
 
