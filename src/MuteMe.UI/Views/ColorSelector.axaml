@@ -1,0 +1,34 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:converters="clr-namespace:MuteMe.UI.Converters"
+             xmlns:views="clr-namespace:MuteMe.UI.Views"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="MuteMe.UI.Views.ColorSelector">
+
+    <UserControl.Styles>
+        <StyleInclude Source="/Styles/RadioButtonStyles.axaml" />
+    </UserControl.Styles>
+
+    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+        <RadioButton Classes="CustomButton" Content="Red"
+                     IsChecked="{Binding $parent[views:ColorSelector].SelectedColor, Converter={x:Static converters:StringEqualsConverter.Instance}, ConverterParameter=Red}" />
+        <RadioButton Classes="CustomButton" Content="Green"
+                     IsChecked="{Binding $parent[views:ColorSelector].SelectedColor, Converter={x:Static converters:StringEqualsConverter.Instance}, ConverterParameter=Green}" />
+        <RadioButton Classes="CustomButton" Content="Blue"
+                     IsChecked="{Binding $parent[views:ColorSelector].SelectedColor, Converter={x:Static converters:StringEqualsConverter.Instance}, ConverterParameter=Blue}" />
+        <RadioButton Classes="CustomButton" Content="Yellow"
+                     IsChecked="{Binding $parent[views:ColorSelector].SelectedColor, Converter={x:Static converters:StringEqualsConverter.Instance}, ConverterParameter=Yellow}" />
+        <RadioButton Classes="CustomButton" Content="Cyan"
+                     IsChecked="{Binding $parent[views:ColorSelector].SelectedColor, Converter={x:Static converters:StringEqualsConverter.Instance}, ConverterParameter=Cyan}" />
+        <RadioButton Classes="CustomButton" Content="Purple"
+                     IsChecked="{Binding $parent[views:ColorSelector].SelectedColor, Converter={x:Static converters:StringEqualsConverter.Instance}, ConverterParameter=Purple}" />
+        <RadioButton Classes="CustomButton" Content="White"
+                     IsChecked="{Binding $parent[views:ColorSelector].SelectedColor, Converter={x:Static converters:StringEqualsConverter.Instance}, ConverterParameter=White}" />
+        <RadioButton Classes="CustomButton" Content="No Color"
+                     IsChecked="{Binding $parent[views:ColorSelector].SelectedColor, Converter={x:Static converters:StringEqualsConverter.Instance}, ConverterParameter=NoColor}" />
+    </StackPanel>
+
+
+</UserControl>

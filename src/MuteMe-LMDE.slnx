@@ -1,0 +1,11 @@
+﻿<Solution>
+    <Folder Name="/Test/">
+        <Project Path="..\test\MuteMeControl.Tests\MuteMeControl.Tests.csproj" Type="Classic C#"/>
+        <Project Path="..\test\Utilities.Tests\Utilities.Tests.csproj" Type="Classic C#"/>
+    </Folder>
+    <Project Path="AudioControl\AudioControl.csproj" Type="Classic C#"/>
+    <Project Path="DeviceControl\DeviceControl.csproj" Type="Classic C#"/>
+    <Project Path="MuteMe.UI\MuteMe.UI.csproj" Type="Classic C#"/>
+    <Project Path="MuteMeControl\MuteMeControl.csproj" Type="Classic C#"/>
+    <Project Path="Utilities\Utilities.csproj" Type="Classic C#"/>
+</Solution>

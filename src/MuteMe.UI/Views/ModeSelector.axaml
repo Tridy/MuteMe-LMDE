@@ -1,0 +1,24 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:converters="clr-namespace:MuteMe.UI.Converters"
+             xmlns:views="clr-namespace:MuteMe.UI.Views"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="MuteMe.UI.Views.ModeSelector">
+
+    <UserControl.Styles>
+        <StyleInclude Source="/Styles/RadioButtonStyles.axaml" />
+    </UserControl.Styles>
+
+    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+
+        <RadioButton Classes="CustomButton" Content="Toggle"
+                     IsChecked="{Binding $parent[views:ModeSelector].SelectedMode, Converter={x:Static converters:StringEqualsConverter.Instance}, ConverterParameter=Toggle}" />
+
+        <RadioButton Classes="CustomButton" Content="Push-to-Talk"
+                     IsChecked="{Binding $parent[views:ModeSelector].SelectedMode, Converter={x:Static converters:StringEqualsConverter.Instance}, ConverterParameter=P2T}" />
+
+    </StackPanel>
+
+</UserControl>

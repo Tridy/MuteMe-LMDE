@@ -1,0 +1,60 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:MuteMe.UI.ViewModels"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MuteMe.UI.Views"
+        xmlns:converters="clr-namespace:MuteMe.UI.Converters"
+        mc:Ignorable="d"
+        SizeToContent="WidthAndHeight"
+        x:Class="MuteMe.UI.Views.MainWindow"
+        x:DataType="vm:MainWindowViewModel"
+        Icon="/Assets/green-mic.png"
+        Title="MuteMe.UI"
+        CanResize="False"
+        Closing="Window_Closing">
+
+    <Design.DataContext>
+        <!-- This only sets the DataContext for the previewer in an IDE,
+             to set the actual DataContext for runtime, set the DataContext property in code (look at App.axaml.cs) -->
+        <vm:DesignTimeMainWindowViewModel />
+    </Design.DataContext>
+
+    <Grid>
+
+        <StackPanel Orientation="Vertical" Name="HeadersTextBlockStyle" Margin="10">
+
+            <Grid Margin="0,0,0,20">
+                <local:RedMuteIcon
+                    IsVisible="{Binding Path=State, Converter={x:Static converters:StateToIsVisibleConverter.Instance}, ConverterParameter=MUTED}" />
+                <local:GreenUnmuteIcon
+                    IsVisible="{Binding Path=State, Converter={x:Static converters:StateToIsVisibleConverter.Instance}, ConverterParameter=UNMUTED}" />
+            </Grid>
+
+            <TextBlock Text="{Binding State, StringFormat='Microphone - {0}'}" HorizontalAlignment="Center"
+                       FontSize="25" />
+
+            <TextBlock Text="Muted color:" HorizontalAlignment="Center" FontSize="20" Margin="0,30,0,5" />
+
+            <local:ColorSelector SelectedColor="{Binding SelectedMutedColor, Mode=TwoWay}" />
+
+            <TextBlock Text="Unmuted color:" HorizontalAlignment="Center" FontSize="20" Margin="0,30,0,5" />
+
+            <local:ColorSelector SelectedColor="{Binding SelectedUnmutedColor, Mode=TwoWay}" />
+
+            <TextBlock Text="Mode: (TODO)" HorizontalAlignment="Center" FontSize="20" Margin="0,30,0,5" IsVisible="False" />
+
+            <local:ModeSelector SelectedMode="{Binding SelectedMode, Mode=TwoWay}" IsEnabled="False" IsVisible="False" />
+
+        </StackPanel>
+
+        <Grid Grid.RowDefinitions="*,Auto,Auto,*" IsVisible="{Binding Path=!IsConnected}">
+            <Border Grid.Row="0" Grid.RowSpan="4" Background="Gray" Opacity="0.95" />
+            <ProgressBar Grid.Row="1" IsIndeterminate="True" Width="80" Height="20" />
+            <TextBlock Grid.Row="2" Text="Not Connected" Foreground="WhiteSmoke" HorizontalAlignment="Center"
+                       VerticalAlignment="Center" FontSize="20" />
+        </Grid>
+
+    </Grid>
+
+</Window>

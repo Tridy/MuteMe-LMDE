@@ -1,0 +1,50 @@
+<Application xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             x:Class="MuteMe.UI.App"
+             xmlns:local="using:MuteMe.UI"
+             xmlns:vms="using:MuteMe.UI.ViewModels"
+             xmlns:converters="clr-namespace:MuteMe.UI.Converters"
+             RequestedThemeVariant="Default"
+             x:DataType="vms:MainWindowViewModel">
+    <!-- "Default" ThemeVariant follows system theme variant. "Dark" or "Light" are other available options. -->
+
+    <TrayIcon.Icons>
+        <TrayIcons>
+            <TrayIcon Icon="{Binding Path=State, Converter={x:Static converters:StateToTrayIconConverter.Instance}}"
+                      ToolTipText="Mute Me Button" Clicked="TrayIcon_OnClicked">
+                <TrayIcon.Menu>
+                    <NativeMenu>
+                        <NativeMenuItem Header="Show Window" Click="ShowWindow_OnClick" />
+                        <NativeMenuItemSeparator />
+                        <NativeMenuItem Header="Exit" Click="Exit_OnClick" />
+                        <!-- <NativeMenuItem Header="Settings"> -->
+                        <!--     <NativeMenu> -->
+                        <!--         <NativeMenuItem Header="Option 1"   /> -->
+                        <!--         <NativeMenuItem Header="Option 2"   /> -->
+                        <!--         <NativeMenuItemSeparator /> -->
+                        <!--         <NativeMenuItem Header="Option 3"  /> -->
+                        <!--     </NativeMenu> -->
+                        <!-- </NativeMenuItem> -->
+                    </NativeMenu>
+                </TrayIcon.Menu>
+            </TrayIcon>
+        </TrayIcons>
+    </TrayIcon.Icons>
+
+
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceInclude Source="avares://MuteMe.UI/Icons/icons.axaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Application.Resources>
+
+    <Application.DataTemplates>
+        <local:ViewLocator />
+    </Application.DataTemplates>
+
+    <Application.Styles>
+        <FluentTheme />
+    </Application.Styles>
+</Application>
