@@ -1,0 +1,67 @@
+13 purple
+14 blue 
+15 white
+16 off
+17 dim red
+18 dim green
+19 dim yellow
+20 dim blue
+21 dim purple
+22 dim cyan
+23 dim white
+24 off
+25 temp rainbow
+
+27 dark yellow
+
+33 pulsing red
+34 pulsing green
+35 pulsing yellow
+36 pulsing blue
+37 pulsing purple
+38 pulsing cyan
+39 pulsing white
+
+40 off
+
+
+41 firmware + openurl
+
+
+42 fast pulsing green
+43 fast pulsing yellow
+44 fast pulsing blue
+45 fast pulsing purple
+46 fast pulsing cyan
+47 fast pulsing white
+
+48 off
+
+49 slow pulsing Red
+50 slow pulsing green
+51 slow pulsing yellow
+52 slow pulsing blue
+53 slow pulsing purple
+54 slow pulsing cyan
+55 slow pulsing white
+
+56 off
+
+57 temp rainbow
+
+58 error? disconnect?
+
+59 very slow yellow
+60 very slow blue
+61 very slow purple
+62 very slow cyan
+63 very slow white
+
+64 off 
+65 
+66 
+
+89 rainbow + firmware
+
+
+121 reinbow + firmware
