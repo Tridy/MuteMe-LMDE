@@ -6,6 +6,14 @@
         <AvaloniaUseCompiledBindingsByDefault>true</AvaloniaUseCompiledBindingsByDefault>
     </PropertyGroup>
 
+    <PropertyGroup>
+        <TodaysYear>$([System.DateTime]::Now.Year)</TodaysYear>
+        <TodaysMonth>$([System.DateTime]::Now.Month)</TodaysMonth>
+        <TodaysDay>$([System.DateTime]::Now.Day)</TodaysDay>
+        <TodaysTime>$([System.DateTime]::Now.ToString("HHmm"))</TodaysTime>
+        <Version>$(TodaysYear).$(TodaysMonth).$(TodaysDay).$(TodaysTime)</Version>
+    </PropertyGroup>
+
     <ItemGroup>
         <AvaloniaResource Include="Assets\**"/>
     </ItemGroup>

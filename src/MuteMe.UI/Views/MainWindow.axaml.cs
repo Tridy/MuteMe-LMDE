@@ -47,17 +47,18 @@ public partial class MainWindow : Window
 
     private void Window_Closing(object? sender, WindowClosingEventArgs e)
     {
-        if (Tag is null)
+        // During system logout/shutdown or when explicitly asked to close, do not cancel
+        bool allowClose = App.IsSystemShutdownRequested || Tag is not null;
+        if (!allowClose)
         {
             e.Cancel = true;
             WindowState = WindowState.Minimized;
+            return;
         }
-        else
+        
+        if (DataContext is MainWindowViewModel vm)
         {
-            if (DataContext is MainWindowViewModel vm)
-            {
-                vm.OnShuttingDown();
-            }
+            vm.OnShuttingDown();
         }
     }
 }

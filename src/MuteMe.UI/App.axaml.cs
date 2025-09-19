@@ -19,6 +19,9 @@ namespace MuteMe.UI;
 
 public partial class App : Application
 {
+    private static bool _isSystemShutdownRequested;
+    public static bool IsSystemShutdownRequested => _isSystemShutdownRequested;
+    
     public override void Initialize()
     {
         AvaloniaXamlLoader.Load(this);
@@ -44,6 +47,27 @@ public partial class App : Application
             mainWindow.DataContext = mainWindowViewModel;
             DataContext = mainWindowViewModel;
             desktop.MainWindow = mainWindow;
+
+            desktop.ShutdownRequested += (_, _) =>
+            {
+                _isSystemShutdownRequested = true;
+                try
+                {
+                    if (desktop.MainWindow is not null)
+                    {
+                        desktop.MainWindow.Tag = "CLOSE";
+                    }
+
+                    if (mainWindowViewModel is not null)
+                    {
+                        mainWindowViewModel.OnShuttingDown();
+                    }
+                }
+                catch
+                {
+                    // ignore exceptions during shutdown
+                }
+            };
         }
 
         base.OnFrameworkInitializationCompleted();
